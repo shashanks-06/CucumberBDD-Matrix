@@ -12,47 +12,132 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>17</java.version>
+    <junit.version>4.13.2</junit.version>
+    <cucumber.version>7.22.0</cucumber.version>
+    <maven.compiler.version>3.14.0</maven.compiler.version>
+    <maven.surefire.version>3.5.3</maven.surefire.version>
   </properties>
 
   <dependencies>
 
-    <!-- https://mvnrepository.com/artifact/junit/junit -->
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.13.2</version>
-      <scope>test</scope>
-    </dependency>
+      <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-java</artifactId>
+        <version>${cucumber.version}</version>
+        <scope>test</scope>
+      </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+      <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-junit</artifactId>
+        <version>${cucumber.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
-      <version>4.26.0</version>
+      <version>4.31.0</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
-    <dependency>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-java</artifactId>
-      <version>7.20.1</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
-    <dependency>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-junit</artifactId>
-      <version>7.20.1</version>
-      <scope>test</scope>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-gherkin -->
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-gherkin</artifactId>
       <version>7.20.1</version>
     </dependency>
 
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>5.9.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>tech.grasshopper</groupId>
+      <artifactId>extentreports-cucumber6-adapter</artifactId>
+      <version>2.17.0</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>7.10.1</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-testng</artifactId>
+      <version>${cucumber.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>5.2.5</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>5.4.0</version>
+    </dependency>
 
   </dependencies>
+
+  <build>
+    <plugins>
+
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler.version}</version>
+        <configuration>
+          <encoding>UTF-8</encoding>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven.surefire.version}</version>
+        <configuration>
+          <includes>
+            <include>**/ParallelRun.java</include>
+          </includes>
+          <parallel>methods</parallel>
+          <threadCount>4</threadCount>
+          <useUnlimitedThreads>false</useUnlimitedThreads>
+        </configuration>
+      </plugin>
+
+      <!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-failsafe-plugin</artifactId>
+          <version>3.0.0-M3</version> <executions> <execution> <goals> <goal>integration-test</goal>
+          </goals> <configuration> UNCOMMENT - To add any exclusions if required <excludes>
+          <exclude>**/*IT*.java</exclude> </excludes> <includes> UNCOMMENT BELOW LINE
+          - To execute feature files with a single runner <include>**/MyTestRunner.java</include>
+          UNCOMMENT BELOW LINE - To execute feature files with multiple runners <include>**/*Runner.java</include>
+          </includes> UNCOMMENT BELOW 3 LINES - To execute using parallel or combination
+          option <parallel>methods</parallel> <threadCount>4</threadCount> <perCoreThreadCount>true</perCoreThreadCount>
+          UNCOMMENT BELOW 3 LINES - To execute using forking or combination option
+          <forkCount>2</forkCount> <reuseForks>true</reuseForks> <reportsDirectory>${project.build.directory}/failsafe-reports_${surefire.forkNumber}</reportsDirectory>
+          </configuration> </execution> </executions> </plugin> -->
+
+
+    </plugins>
+  </build>
+
 </project>

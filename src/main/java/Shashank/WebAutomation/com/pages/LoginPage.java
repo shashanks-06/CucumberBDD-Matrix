@@ -5,13 +5,13 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
 //    1. By Locators:
-    private By emailIdField = By.id("email");
-    private By passwordField = By.id("passwd");
-    private By submitBtnField = By.id("SubmitLogin");
-    private By forgotPasswordField = By.linkText("Forgot your password?");
+    private final By emailIdField = By.id("email");
+    private final By passwordField = By.id("passwd");
+    private final By submitBtnField = By.id("SubmitLogin");
+    private final By forgotPasswordField = By.linkText("Forgot your password?");
 
 //    2. Constructor of the Page class
     public LoginPage(WebDriver driver){

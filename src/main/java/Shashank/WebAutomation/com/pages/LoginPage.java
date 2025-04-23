@@ -40,4 +40,13 @@ public class LoginPage {
         driver.findElement(submitBtnField).click();
     }
 
+    public AccountsPage doLogin(String username, String password){
+        System.out.println("Login with " + username + " | " + password);
+        enterUsername(username);
+        enterPassword(password);
+        clickOnLogin();
+
+        return new AccountsPage(driver);
+    }
+
 }

@@ -1,4 +1,4 @@
-package Shashank.WebAutomation.SelfLearn.appHooks;
+package AppHooks;
 
 import Shashank.WebAutomation.com.qa.factory.DriverFactory;
 import Shashank.WebAutomation.com.qa.util.ConfigReader;

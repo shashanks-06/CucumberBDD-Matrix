@@ -11,11 +11,11 @@ Scenario: Accounts page title
   Then Page title should be "My account - My Shop"
 
 Scenario: Accounts section count
-  Given user is on Accounts page
+  Given user is on the Accounts Page
   Then user gets accounts section
-  |Add my first address|
-  |Order history and details|
-  |My credit slips|
-  |My addresses|
-  |My personal information|
+  |ADD MY FIRST ADDRESS|
+  |ORDER HISTORY AND DETAILS|
+  |MY CREDIT SLIPS|
+  |MY ADDRESSES|
+  |MY PERSONAL INFORMATION|
   And accounts section count should be 5

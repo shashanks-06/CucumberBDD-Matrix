@@ -24,6 +24,10 @@ public class AccountsPage {
 
     //  3. page actions: features(behaviour) of the page the form of methods
 
+    public String getAccountsPageTitle(){
+        return driver.getTitle();
+    }
+
     public int getAccountsSectionCount(){
         return driver.findElements(accountsSection).size();
     }

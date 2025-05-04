@@ -22,7 +22,8 @@ public class LoginPageSteps {
     @When("User gets the title of page")
     public void userGetsTheTitleOfPage() {
 
-        title = accountsPage.getAccountsPageTitle();
+        title = loginPage.getLoginPageTitle();
+//        title = accountsPage.getAccountsPageTitle();
         System.out.println("Page title is " + title);
     }
 

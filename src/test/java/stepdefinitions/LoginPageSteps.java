@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import Shashank.WebAutomation.com.pages.AccountsPage;
 import Shashank.WebAutomation.com.pages.LoginPage;
 import Shashank.WebAutomation.com.qa.factory.DriverFactory;
 import io.cucumber.java.en.And;
@@ -11,6 +12,7 @@ import org.junit.Assert;
 public class LoginPageSteps {
     private static String title;
     private LoginPage loginPage = new LoginPage(DriverFactory.getDriver());
+    private AccountsPage accountsPage = new AccountsPage(DriverFactory.getDriver());
 
     @Given("User is on the Login Page")
     public void userIsOnTheLoginPage() {
@@ -20,7 +22,7 @@ public class LoginPageSteps {
     @When("User gets the title of page")
     public void userGetsTheTitleOfPage() {
 
-        title = loginPage.getLoginPageTitle();
+        title = accountsPage.getAccountsPageTitle();
         System.out.println("Page title is " + title);
     }
 
